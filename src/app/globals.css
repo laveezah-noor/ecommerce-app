@@ -19,3 +19,18 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.volkhov-regular {
+  font-family: "Volkhov", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.logo {
+  font-size: 52px;
+  text-transform: uppercase;
+}
+
+.separator {
+  background-color: #DEDFE1;
+}

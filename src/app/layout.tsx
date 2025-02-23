@@ -22,12 +22,51 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const routes = [
+    { href: "/pages", label: "Home" },
+    { href: "/pages/products", label: "Products" },
+    { href: "/pages/cart", label: "Cart" },
+    { href: "/pages/profile", label: "Profile" },
+  ];
+
+  const footerRoutes = [
+    { href: "/pages", label: "Support Center" },
+    { href: "/pages/1", label: "Invoicing" },
+    { href: "/pages/2", label: "Contract" },
+    { href: "/pages/3", label: "Careers" },
+    { href: "/pages/4", label: "Blog" },
+    { href: "/pages/profile", label: "FAQs" },
+  ];
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body>
+        <header className="flex sm:flex-row sm:mx-20 justify-between h-[56px] mt-4 mx-20">
+          <h1 className="flex items-center volkhov-regular logo">Fasco</h1>
+          <nav className="sm:mt-0">
+            <ul className="flex justify-around">
+              {routes.map(({ href, label }) => (
+                <li key={href} className="p-4 sm:p-4">
+                  <a href={href}>{label}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </header>
+        <main>{children}</main>
+        <div className="separator border-t"></div>
+        <footer className="flex h-[138px] flex-col w-full items-center justify-around">
+          <div className="flex justify-center items-center space-x-20 h-[32px]">
+            <h1 className="flex items-center volkhov-regular uppercase text-[32px]">Fasco</h1>
+            <ul className="flex">
+              {footerRoutes.map(({ href, label }) => (
+                <li key={href} className="p-4">
+                  <a href={href}>{label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p className="mb-0 align-bottom text-xs">© 2025 Xpro . All Rights Reserved.</p>
+        </footer>
       </body>
     </html>
   );
