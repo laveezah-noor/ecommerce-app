@@ -26,7 +26,7 @@ export default function RootLayout({
     { href: "/pages", label: "Home" },
     { href: "/pages/products", label: "Products" },
     { href: "/pages/cart", label: "Cart" },
-    { href: "/pages/profile", label: "Profile" },
+    { href: "/pages/signin", label: "Signin" },
   ];
 
   const footerRoutes = [
@@ -35,17 +35,17 @@ export default function RootLayout({
     { href: "/pages/2", label: "Contract" },
     { href: "/pages/3", label: "Careers" },
     { href: "/pages/4", label: "Blog" },
-    { href: "/pages/profile", label: "FAQs" },
+    { href: "/pages/signin", label: "FAQs" },
   ];
   return (
     <html lang="en">
       <body>
-        <header className="flex sm:flex-row sm:mx-20 justify-between h-[56px] mt-4 mx-20">
+        <header className="flex flex-col sm:flex-row justify-between items-center h-[56px] mt-4 mx-4 sm:mx-20">
           <h1 className="flex items-center volkhov-regular logo">Fasco</h1>
-          <nav className="sm:mt-0">
-            <ul className="flex justify-around">
+          <nav className="mt-2 sm:mt-0">
+            <ul className="flex flex-wrap justify-center sm:justify-around">
               {routes.map(({ href, label }) => (
-                <li key={href} className="p-4 sm:p-4">
+                <li key={href} className="p-2 sm:p-4">
                   <a href={href}>{label}</a>
                 </li>
               ))}
@@ -54,18 +54,18 @@ export default function RootLayout({
         </header>
         <main>{children}</main>
         <div className="separator border-t"></div>
-        <footer className="flex h-[138px] flex-col w-full items-center justify-around">
-          <div className="flex justify-center items-center space-x-20 h-[32px]">
-            <h1 className="flex items-center volkhov-regular uppercase text-[32px]">Fasco</h1>
-            <ul className="flex">
+        <footer className="flex h-auto sm:h-[138px] flex-col w-full items-center justify-around py-4 sm:py-0">
+          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-20 h-auto sm:h-[32px]">
+            <h1 className="flex items-center volkhov-regular uppercase text-2xl sm:text-[32px]">Fasco</h1>
+            <ul className="flex flex-wrap justify-center">
               {footerRoutes.map(({ href, label }) => (
-                <li key={href} className="p-4">
+                <li key={href} className="p-2 sm:p-4">
                   <a href={href}>{label}</a>
                 </li>
               ))}
             </ul>
           </div>
-          <p className="mb-0 align-bottom text-xs">© 2025 Xpro . All Rights Reserved.</p>
+          <p className="mt-4 sm:mt-0 text-xs">© 2025 Xpro . All Rights Reserved.</p>
         </footer>
       </body>
     </html>
