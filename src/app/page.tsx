@@ -1,11 +1,13 @@
 "use client";
 import Image from "next/image";
+import { FlipCountdown } from './components/clock'
 
 export default function Home() {
   return (
     <div>
       <HeroSection />
       <BrandDisplaySection />
+      <DealOfTheMonth />
     </div>
 
   );
@@ -63,11 +65,35 @@ const BrandDisplaySection = () => {
   ];
   return (
     <section className="container flex flex-row mx-auto py-12">
-        {brandSection.map((brand) => (
-          <div key={brand.name} className="flex items-center justify-center mx-2">
-            <Image src={brand.image} alt={brand.name} width={200} height={40} loading="lazy" />
-          </div>
-        ))}
-      </section>
+      {brandSection.map((brand) => (
+        <div key={brand.name} className="flex items-center justify-center mx-2">
+          <Image src={brand.image} alt={brand.name} width={200} height={40} loading="lazy" />
+        </div>
+      ))}
+    </section>
+  )
+}
+
+const DealOfTheMonth = () => {
+  return (
+    <section className="container mx-auto py-12">
+      <div className="bg-white p-8 rounded-lg shadow-lg max-w-md mx-auto">
+        <h2 className="volkhov-regular text-4xl font-bold text-gray-800 mb-4">Deals Of The Month</h2>
+        <p className="text-gray-600 text-base mb-4 poppins-regular">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque duis ultrices sollicitudin aliquam sem.
+        </p>
+        <button className="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-300">
+          Shop Now
+        </button>
+        <div className="bg-white p-8 rounded-lg shadow-lg max-w-md mx-auto">
+          <h2 className="poppins-medium text-2xl font-bold text-gray-800 mb-4">Hurry, Before It’s Too Late!</h2>
+          <FlipCountdown
+            type="countdown"
+            to={"2025-03-30 00:00:00"}
+          />
+        </div>
+      </div>
+      <div></div>
+    </section>
   )
 }
