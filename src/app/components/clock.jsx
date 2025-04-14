@@ -1,13 +1,13 @@
-import React from 'react'
-import FlipClock from 'x-react-flipclock'
+import React from "react";
+import FlipClock from "x-react-flipclock";
 
-export const FlipCountdown = ({type, to}) => {
+export const FlipCountdown = ({ type, to }) => {
   return (
-    <FlipClock type={type}
-    count_to={to}
-    />
-  )
-}
+    <>
+      <FlipClock type={type} count_to={to} />
+    </>
+  );
+};
 
 // units = {[
 //     {
