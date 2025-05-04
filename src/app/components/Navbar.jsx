@@ -1,8 +1,9 @@
+import Link from "next/link";
 import React from "react";
 
 const Navbar = () => {
   const routes = [
-    { href: "/pages", label: "Home" },
+    { href: "/", label: "Home" },
     { href: "/pages/products", label: "Products" },
     { href: "/pages/cart", label: "Cart" },
     { href: "/pages/signin", label: "Signin" },
@@ -15,7 +16,7 @@ const Navbar = () => {
         <ul className="flex flex-wrap justify-center sm:justify-around">
           {routes.map(({ href, label }) => (
             <li key={href} className="p-2 sm:p-4">
-              <a href={href}>{label}</a>
+              <Link href={href}>{label}</Link>
             </li>
           ))}
         </ul>
